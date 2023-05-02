@@ -12,4 +12,7 @@
 
   (it "parses iv as 4"
     (should= 4 (as-arabic "IV"))
-    (should= 9 (as-arabic "IX"))))
+    (should= 9 (as-arabic "IX")))
+
+  (it "parses vi as 6"
+    (should= 6 (as-arabic "VI"))))
