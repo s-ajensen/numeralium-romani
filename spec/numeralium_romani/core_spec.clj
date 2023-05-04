@@ -31,4 +31,21 @@
     (should= 1900 (as-arabic "MCM"))
     (should= 2421 (as-arabic "MMCDXXI"))
     (should= 1009 (as-arabic "MIX"))
-    (should= 3999 (as-arabic "MMMCMXCIX"))))
+    (should= 3999 (as-arabic "MMMCMXCIX")))
+
+  (it "accommodates lower case numerals"
+    (should= 1 (as-arabic "i"))
+    (should= 900 (as-arabic "cM"))
+    (should= 3999 (as-arabic "MmMcMxcIx"))))
+
+(describe "converts arabic to roman numerals"
+  (it "parses 1 as I"
+    (should= "I" (as-roman 1)))
+
+  (it "parses numbers evaluating to identical, consecutive values"
+    (should= "II" (as-roman 2))
+    (should= "III" (as-roman 3))
+    (should= "XX" (as-roman 20)))
+
+  (it "parses 6 as VI"
+    (should= "VI" (as-roman 6))))
